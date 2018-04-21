@@ -10,7 +10,7 @@ package servers
 
 import (
 	"encoding/json"
-	"github.com/aacebedo/dnsdock/src/utils"
+	"github.com/olitvin/dnsdock/src/utils"
 	"github.com/gorilla/mux"
 	"net/http"
 )

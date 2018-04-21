@@ -22,10 +22,10 @@ after_success:
   - sudo mv /build/arm/dnsdock /build/dnsdock.arm
   - sudo chmod -R a+rw /build
   - echo "docker login -u $DOCKER_USER -p $DOCKER_PASSWORD" >> /tmp/deploy_containers.sh
-  - echo "docker push aacebedo/dnsdock:latest-amd64" >> /tmp/deploy_containers.sh
-  - echo "docker push aacebedo/dnsdock:latest-arm" >> /tmp/deploy_containers.sh
-  - echo "docker push aacebedo/dnsdock:$VERSION-amd64" >> /tmp/deploy_containers.sh
-  - echo "docker push aacebedo/dnsdock:$VERSION-arm" >> /tmp/deploy_containers.sh
+  - echo "docker push olitvin/dnsdock:latest-amd64" >> /tmp/deploy_containers.sh
+  - echo "docker push olitvin/dnsdock:latest-arm" >> /tmp/deploy_containers.sh
+  - echo "docker push olitvin/dnsdock:$VERSION-amd64" >> /tmp/deploy_containers.sh
+  - echo "docker push olitvin/dnsdock:$VERSION-arm" >> /tmp/deploy_containers.sh
   - sudo chmod a+rx /tmp/deploy_containers.sh
     
 deploy:
