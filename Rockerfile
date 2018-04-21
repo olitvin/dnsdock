@@ -21,14 +21,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-{{$GOLANG_VERSION := "1.6.3"}}
+{{$GOLANG_VERSION := "1.10.1"}}
 {{$ARCH:= (or .ARCH "amd64")}}
 {{$GIT_COMMIT:= (or .GIT_COMMIT "develop")}}
 {{$DOCKERIMAGE_VERSION:= (or .DOCKERIMAGE_VERSION "dev")}}
 {{$SRC_DIR:= (or .SRC_DIR ".")}}
 
 # build image
-FROM alpine:3.4
+FROM alpine:3.7
 RUN apk update
 RUN apk upgrade
 RUN apk add go>{{$GOLANG_VERSION}} go-tools>{{$GOLANG_VERSION}} git musl-dev
@@ -57,6 +57,7 @@ WORKDIR /go/src/github.com/olitvin/dnsdock
 {{end}}
 
 WORKDIR /go/src/github.com/olitvin/dnsdock
+MOUNT Godeps:/go/src/github.com/olitvin/dnsdock/Godeps
 RUN godep restore
 ENV GOARCH={{$ARCH}}
 WORKDIR /go/src/github.com/olitvin/dnsdock/src
